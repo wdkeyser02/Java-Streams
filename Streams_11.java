@@ -7,13 +7,13 @@ public class Streams_11 {
     public static void main(String[] args) {
         System.out.println("Java Streams");
         List<Person> people = Arrays.asList(
-                new Person(1,"Alice", "Gates",25),
-                new Person(2,"David", "Smith",30),
-                new Person(3,"Charlie", "Jones",22),
-                new Person(4,"David", "Williams",35),
-                new Person(5,"Eva", "Taylor",28),
-                new Person(6,"Frank", "Evans",22),
-                new Person(6,"David", "Robinson",21)
+            new Person(1,"Alice", "Gates",25),
+            new Person(2,"David", "Smith",30),
+            new Person(3,"Charlie", "Jones",22),
+            new Person(4,"David", "Williams",35),
+            new Person(5,"Eva", "Taylor",28),
+            new Person(6,"Frank", "Evans",22),
+            new Person(6,"David", "Robinson",21)
         );
         Optional<String> stream = people.stream()
             .filter(person -> person.firstName.equals("David"))
