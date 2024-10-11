@@ -11,5 +11,18 @@ public class Streams_1 {
             .toList();
         
         result.forEach(System.out::println);
+        System.out.println("------------------------------------------------");
+
+        List<Integer> result_integer = numbers.stream()
+            .<Integer>mapMulti((num, downstream) -> {
+                try {
+                    downstream.accept(Integer.valueOf(num));
+                } catch (Exception e) {
+                    downstream.accept(Integer.valueOf(0));
+                }
+            })
+            .toList();
+        
+        result_integer.forEach(System.out::println);
     }
 }
