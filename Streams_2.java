@@ -10,7 +10,34 @@ public class Streams_2 {
             })
             .boxed()
             .toList();
+        System.out.println(result);
+        System.out.println("------------------------------------------------");
+
+        List<Integer> result_A = numbers.stream()
+            .mapMultiToInt((num, downstream) -> {
+                if (num > 5) {
+                    downstream.accept(num);
+                } else {
+                    downstream.accept(0);
+                }
+            })
+            .boxed()
+            .toList();
         
-        result.forEach(System.out::println);
+        System.out.println(result_A);
+        System.out.println("------------------------------------------------");
+
+        List<Integer> result_B = numbers.stream()
+            .mapMultiToInt((num, downstream) -> {
+                downstream.accept(num);
+                downstream.accept(num * num);
+                downstream.accept(num * num * num);
+                downstream.accept(num * num * num * num);
+            })
+            .boxed()
+            .toList();
+        
+        System.out.println(result_B);
+        System.out.println("------------------------------------------------");
     }
 }
